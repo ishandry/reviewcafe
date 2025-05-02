@@ -1,0 +1,54 @@
+scalar Rating
+
+type Restaurant {
+    id: ID!
+    name: String!
+    address: String!
+    latitude: Float!
+    longitude: Float!
+    description: String
+    reviews: [Review!]!
+}
+
+type Review {
+    id: ID!
+    restaurantId: ID!
+    cleanliness: Rating!
+    service: Rating!
+    food: Rating!
+    comment: String
+    authorId: ID
+    createdAt: String!
+}
+
+type Query {
+    restaurants(ids: [ID!]): [Restaurant!]!
+    reviews(restaurantId: ID!): [Review!]!
+}
+
+input ReviewInput {
+    restaurantId: ID!
+    cleanliness: Rating!
+    service: Rating!
+    food: Rating!
+    comment: String
+}
+
+type Mutation {
+    createReview(input: ReviewInput!): Review!
+    updateReview(input: UpdateReviewInput!): UpdateReviewResponse!
+}
+
+input UpdateReviewInput {
+    id: ID!
+    cleanliness: Rating
+    service: Rating
+    food: Rating
+    comment: String
+}
+
+type UpdateReviewResponse {
+    review: Review
+    success: Boolean!
+    message: String!
+}
