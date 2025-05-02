@@ -1,0 +1,14 @@
+{
+  "name": "restaurants-api",
+  "version": "1.0.0",
+  "description": "restapi",
+  "main": "index.js",
+  "scripts": {
+    "test": "testapi"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
